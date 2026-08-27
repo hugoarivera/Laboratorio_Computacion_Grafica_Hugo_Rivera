@@ -1,0 +1,2 @@
+# Laboratorio_Computacion_Grafica_Hugo_Rivera
+Practicas_Laboratorio_Computacion_Grafica
