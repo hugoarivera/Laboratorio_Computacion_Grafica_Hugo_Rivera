@@ -73,6 +73,26 @@ int main() {
 		-0.5f,  0.6f, 0.0f,    1.0f,0.8f,0.0f, //Es el vertice ubicado en la oreja de la izquierda
 		-0.6f, -0.1f, 0.0f,    1.0f,0.8f,0.0f  //Es el vertice ubicado a la izquierda en la cara del gato
 
+		-0.6f, -0.1f, 0.0f,    1.0f,0.8f,0.0f, //Es el vertice ubicado a la izquierda en la cara del gato
+		-0.2f,  0.1f, 0.0f,    0.0f,0.0f,0.0f, //Sera el vertice que se ubica en el ojo izquierdo
+		 0.2f,  0.1f, 0.0f,    0.0f,0.0f,0.0f, //Sera el vertice que se ubica en el ojo derecho
+		 0.0f, -0.1f, 0.0f,    0.0f,0.0f,0.0f, //Sera el vertice que se ubica en la nariz
+		-0.2f,  0.0f, 0.0f,    0.0f,0.0f,0.0f, //Es el vertice del inicio del primer bigote de lado izquierdo
+		-0.4f,  0.05f,0.0f,    0.0f,0.0f,0.0f, //Es el vertice del final del primer bigote de lado izquierdo
+		-0.2f, -0.1f, 0.0f,    0.0f,0.0f,0.0f, //Es el vertice del inicio del segundo bigote de lado izquierdo
+		-0.4f, -0.1f, 0.0f,    0.0f,0.0f,0.0f, //Es el vertice del final del segundo bigote de lado izquierdo
+		-0.2f, -0.2f, 0.0f,    0.0f,0.0f,0.0f, //Es el vertice del inicio del tercer bigote de lado izquierdo
+		-0.4f, -0.25f,0.0f,    0.0f,0.0f,0.0f, //Es el vertice del final del tercer bigote de lado izquierdo
+		 0.2f,  0.0f, 0.0f,    0.0f,0.0f,0.0f, //Es el vertice del inicio del primer bigote de lado derecho
+		 0.4f,  0.05f,0.0f,    0.0f,0.0f,0.0f, //Es el vertice del final del primer bigote de lado derecho
+		 0.2f, -0.1f, 0.0f,    0.0f,0.0f,0.0f, //Es el vertice del inicio del segundo bigote de lado derecho
+		 0.4f, -0.1f, 0.0f,    0.0f,0.0f,0.0f, //Es el vertice del final del segundo bigote de lado derecho
+		 0.2f, -0.2f, 0.0f,    0.0f,0.0f,0.0f, //Es el vertice del inicio del tercer bigote de lado derecho
+		 0.4f, -0.25f,0.0f,    0.0f,0.0f,0.0f, //Es el vertice del final del tercer bigote de lado derecho
+		 0.0f, -0.1f, 0.0f,    0.0f,0.0f,0.0f, //Es el vertice que se encuentra al inicio de la boca de lado izquierdo
+		-0.1f, -0.2f, 0.0f,    0.0f,0.0f,0.0f, //Es el vertice que se encuentra al final de la boca de lado izquierdo
+		 0.0f, -0.1f, 0.0f,    0.0f,0.0f,0.0f, //Es el vertice que se encuentra al inicio de la boca de lado derecho
+		 0.1f, -0.2f, 0.0f,    0.0f,0.0f,0.0f  //Es el vertice que se encuentra al final de la boca de lado derecho
 	};
 	unsigned int indices[] = {  // note that we start from 0!
 		0,1,6, //Aqui estoy uniendo los puntos con triangulos para poder formar la cara del gato
@@ -128,14 +148,16 @@ int main() {
 		// Draw our first triangle
 		ourShader.Use();
 		glBindVertexArray(VAO);
-
-
-		//glPointSize(10);
-		//glDrawArrays(GL_POINTS,0,4);
-
-		//glDrawArrays(GL_LINES,0,2);
+		
 		//Aqui ya mando a imprimir todos mis puntos unidos por triangulos
 		glDrawElements(GL_TRIANGLES, 15, GL_UNSIGNED_INT, 0);
+
+		//Aqui imprimire los puntos que seran los ojos y la nariz
+		glPointSize(10.0f);
+		//Comienzo desde el vertice 7 y dibuje 3 puntos
+		glDrawArrays(GL_POINTS, 7, 3);
+		//Aqui se dibujan los bigotes y la parte de la boca con lineas
+		glDrawArrays(GL_LINES, 10, 16);
 
 		glBindVertexArray(0);
 
