@@ -71,8 +71,6 @@ int main() {
 		 0.2f,  0.3f, 0.0f,    1.0f,0.8f,0.0f, //Es el vertice ubicado abajo de la oreja derecha
 		-0.2f,  0.3f, 0.0f,    1.0f,0.8f,0.0f, //Es el vertice ubicado abajo de la oreja izquierda
 		-0.5f,  0.6f, 0.0f,    1.0f,0.8f,0.0f, //Es el vertice ubicado en la oreja de la izquierda
-		-0.6f, -0.1f, 0.0f,    1.0f,0.8f,0.0f  //Es el vertice ubicado a la izquierda en la cara del gato
-
 		-0.6f, -0.1f, 0.0f,    1.0f,0.8f,0.0f, //Es el vertice ubicado a la izquierda en la cara del gato
 		-0.2f,  0.1f, 0.0f,    0.0f,0.0f,0.0f, //Sera el vertice que se ubica en el ojo izquierdo
 		 0.2f,  0.1f, 0.0f,    0.0f,0.0f,0.0f, //Sera el vertice que se ubica en el ojo derecho
