@@ -1,6 +1,6 @@
-//Previo 3
+//Practica 3
 //Rivera Rodriguez Hugo Abraham
-//Fecha de entrega 29 de Agosto 2026
+//Fecha de entrega 31 de Agosto 2026
 //Numero de cuenta: 320291623
 
 #include<iostream>
@@ -34,7 +34,7 @@ int main() {
 
 	glfwWindowHint(GLFW_RESIZABLE, GL_FALSE);
 
-	GLFWwindow *window = glfwCreateWindow(WIDTH, HEIGHT, "Proyecciones y transformaciones basicas", nullptr, nullptr);
+	GLFWwindow *window = glfwCreateWindow(WIDTH, HEIGHT, "Rivera Rodriguez, Hugo Abraham", nullptr, nullptr);
 
 	int screenWidth, screenHeight;
 
@@ -223,9 +223,9 @@ int main() {
 		glm::mat4 model=glm::mat4(1);
 		glm::mat4 view=glm::mat4(1);
 	
-	   view = glm::translate(view, glm::vec3(0.0f,0.0f,-12.0f));
-		model = glm::rotate( model, 0.5f, glm::vec3( 4.0f, 3.0f, 0.0f ) ); // use to compare orthographic and perspective projection
-		model = glm::scale(model, glm::vec3(3.0f, 5.0f, 2.0f));
+	   view = glm::translate(view, glm::vec3(0.0f,-3.0f,-40.0f));
+		model = glm::rotate( model, 320.0f, glm::vec3( 1.0f, 3.0f, 0.0f ) ); // use to compare orthographic and perspective projection
+		model = glm::scale(model, glm::vec3(4.0f, 4.0f, 4.0f));
 		//view = glm::translate( view, glm::vec3( screenWidth / 2, screenHeight / 1,-800.0f ) ); // use with orthographic projection
 		
 		GLint modelLoc = glGetUniformLocation(ourShader.Program, "model");
@@ -240,9 +240,23 @@ int main() {
 		glBindVertexArray(VAO);
 		glDrawArrays(GL_TRIANGLES, 0, 36);
 		model = glm::mat4(1);
-		model = glm::translate(model, glm::vec3(-5.0f, 0.0f, 0.0f));
-		model = glm::rotate(model, 45.0f, glm::vec3(0.0f, 2.0f, 0.0f)); // use to compare orthographic and perspective projection
-		model = glm::scale(model, glm::vec3(8.0f, 3.0f, 5.0f));
+		model = glm::translate(model, glm::vec3(-3.0f, -14.0f, -60.0f));
+		model = glm::rotate(model, -160.0f, glm::vec3(0.0f, 1.0f, 0.0f)); // use to compare orthographic and perspective projection
+		model = glm::scale(model, glm::vec3(8.0f, 8.0f, 8.0f));
+		glUniformMatrix4fv(modelLoc, 1, GL_FALSE, glm::value_ptr(model));
+		glDrawArrays(GL_TRIANGLES, 0, 36);
+
+		model = glm::mat4(1);
+		model = glm::translate(model, glm::vec3(-6.0f, 6.5f, -40.0f));
+		model = glm::rotate(model, -80.0f, glm::vec3(-0.0f, 5.0f, 0.5f)); // use to compare orthographic and perspective projection
+		model = glm::scale(model, glm::vec3(10.0f, 10.0f, 10.0f));
+		glUniformMatrix4fv(modelLoc, 1, GL_FALSE, glm::value_ptr(model));
+		glDrawArrays(GL_TRIANGLES, 0, 36);
+
+		model = glm::mat4(1);
+		model = glm::translate(model, glm::vec3(0.0f, 22.0f, -50.0f));
+		model = glm::rotate(model, -165.0f, glm::vec3(4.0f, 50.0f, 1.0f)); // use to compare orthographic and perspective projection
+		model = glm::scale(model, glm::vec3(20.0f, 20.0f, 20.0f));
 		glUniformMatrix4fv(modelLoc, 1, GL_FALSE, glm::value_ptr(model));
 		glDrawArrays(GL_TRIANGLES, 0, 36);
 
