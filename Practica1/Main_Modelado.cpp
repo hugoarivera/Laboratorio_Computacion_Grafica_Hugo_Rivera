@@ -1,5 +1,5 @@
 //Previo 4
-//Rivera Rodriguez Hugo Abraha
+//Rivera Rodriguez Hugo Abraham
 //Fecha de entrega 31 de Agosto 2026
 //Número de cuenta: 320291623
 #include<iostream>
