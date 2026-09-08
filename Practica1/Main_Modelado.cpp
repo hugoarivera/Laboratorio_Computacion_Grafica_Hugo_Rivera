@@ -161,6 +161,82 @@ int main() {
 		 0.5f,  0.5f,  0.5f,   0.9f, 0.8f, 0.5f,
 		-0.5f,  0.5f,  0.5f,   0.9f, 0.8f, 0.5f,
 		-0.5f,  0.5f, -0.5f,   0.9f, 0.8f, 0.5f,
+
+		// Cubo color negro (Lo usare para la cara)
+		-0.5f, -0.5f,  0.5f,   0.1f, 0.1f, 0.1f,
+		 0.5f, -0.5f,  0.5f,   0.1f, 0.1f, 0.1f,
+		 0.5f,  0.5f,  0.5f,   0.1f, 0.1f, 0.1f,
+		 0.5f,  0.5f,  0.5f,   0.1f, 0.1f, 0.1f,
+		-0.5f,  0.5f,  0.5f,   0.1f, 0.1f, 0.1f,
+		-0.5f, -0.5f,  0.5f,   0.1f, 0.1f, 0.1f,
+		-0.5f, -0.5f, -0.5f,   0.1f, 0.1f, 0.1f,
+		 0.5f, -0.5f, -0.5f,   0.1f, 0.1f, 0.1f,
+		 0.5f,  0.5f, -0.5f,   0.1f, 0.1f, 0.1f,
+		 0.5f,  0.5f, -0.5f,   0.1f, 0.1f, 0.1f,
+		-0.5f,  0.5f, -0.5f,   0.1f, 0.1f, 0.1f,
+		-0.5f, -0.5f, -0.5f,   0.1f, 0.1f, 0.1f,
+		 0.5f, -0.5f,  0.5f,   0.1f, 0.1f, 0.1f,
+		 0.5f, -0.5f, -0.5f,   0.1f, 0.1f, 0.1f,
+		 0.5f,  0.5f, -0.5f,   0.1f, 0.1f, 0.1f,
+		 0.5f,  0.5f, -0.5f,   0.1f, 0.1f, 0.1f,
+		 0.5f,  0.5f,  0.5f,   0.1f, 0.1f, 0.1f,
+		 0.5f, -0.5f,  0.5f,   0.1f, 0.1f, 0.1f,
+		-0.5f,  0.5f,  0.5f,   0.1f, 0.1f, 0.1f,
+		-0.5f,  0.5f, -0.5f,   0.1f, 0.1f, 0.1f,
+		-0.5f, -0.5f, -0.5f,   0.1f, 0.1f, 0.1f,
+		-0.5f, -0.5f, -0.5f,   0.1f, 0.1f, 0.1f,
+		-0.5f, -0.5f,  0.5f,   0.1f, 0.1f, 0.1f,
+		-0.5f,  0.5f,  0.5f,   0.1f, 0.1f, 0.1f,
+		-0.5f, -0.5f, -0.5f,   0.1f, 0.1f, 0.1f,
+		 0.5f, -0.5f, -0.5f,   0.1f, 0.1f, 0.1f,
+		 0.5f, -0.5f,  0.5f,   0.1f, 0.1f, 0.1f,
+		 0.5f, -0.5f,  0.5f,   0.1f, 0.1f, 0.1f,
+		-0.5f, -0.5f,  0.5f,   0.1f, 0.1f, 0.1f,
+		-0.5f, -0.5f, -0.5f,   0.1f, 0.1f, 0.1f,
+		-0.5f,  0.5f, -0.5f,   0.1f, 0.1f, 0.1f,
+		 0.5f,  0.5f, -0.5f,   0.1f, 0.1f, 0.1f,
+		 0.5f,  0.5f,  0.5f,   0.1f, 0.1f, 0.1f,
+		 0.5f,  0.5f,  0.5f,   0.1f, 0.1f, 0.1f,
+		-0.5f,  0.5f,  0.5f,   0.1f, 0.1f, 0.1f,
+		-0.5f,  0.5f, -0.5f,   0.1f, 0.1f, 0.1f,
+
+		// Cubo color blanco (Lo usare para las patas y los dientes)
+		-0.5f, -0.5f,  0.5f,   1.0f, 1.0f, 1.0f,
+		 0.5f, -0.5f,  0.5f,   1.0f, 1.0f, 1.0f,
+		 0.5f,  0.5f,  0.5f,   1.0f, 1.0f, 1.0f,
+		 0.5f,  0.5f,  0.5f,   1.0f, 1.0f, 1.0f,
+		-0.5f,  0.5f,  0.5f,   1.0f, 1.0f, 1.0f,
+		-0.5f, -0.5f,  0.5f,   1.0f, 1.0f, 1.0f,
+		-0.5f, -0.5f, -0.5f,   1.0f, 1.0f, 1.0f,
+		 0.5f, -0.5f, -0.5f,   1.0f, 1.0f, 1.0f,
+		 0.5f,  0.5f, -0.5f,   1.0f, 1.0f, 1.0f,
+		 0.5f,  0.5f, -0.5f,   1.0f, 1.0f, 1.0f,
+		-0.5f,  0.5f, -0.5f,   1.0f, 1.0f, 1.0f,
+		-0.5f, -0.5f, -0.5f,   1.0f, 1.0f, 1.0f,
+		 0.5f, -0.5f,  0.5f,   1.0f, 1.0f, 1.0f,
+		 0.5f, -0.5f, -0.5f,   1.0f, 1.0f, 1.0f,
+		 0.5f,  0.5f, -0.5f,   1.0f, 1.0f, 1.0f,
+		 0.5f,  0.5f, -0.5f,   1.0f, 1.0f, 1.0f,
+		 0.5f,  0.5f,  0.5f,   1.0f, 1.0f, 1.0f,
+		 0.5f, -0.5f,  0.5f,   1.0f, 1.0f, 1.0f,
+		-0.5f,  0.5f,  0.5f,   1.0f, 1.0f, 1.0f,
+		-0.5f,  0.5f, -0.5f,   1.0f, 1.0f, 1.0f,
+		-0.5f, -0.5f, -0.5f,   1.0f, 1.0f, 1.0f,
+		-0.5f, -0.5f, -0.5f,   1.0f, 1.0f, 1.0f,
+		-0.5f, -0.5f,  0.5f,   1.0f, 1.0f, 1.0f,
+		-0.5f,  0.5f,  0.5f,   1.0f, 1.0f, 1.0f,
+		-0.5f, -0.5f, -0.5f,   1.0f, 1.0f, 1.0f,
+		 0.5f, -0.5f, -0.5f,   1.0f, 1.0f, 1.0f,
+		 0.5f, -0.5f,  0.5f,   1.0f, 1.0f, 1.0f,
+		 0.5f, -0.5f,  0.5f,   1.0f, 1.0f, 1.0f,
+		-0.5f, -0.5f,  0.5f,   1.0f, 1.0f, 1.0f,
+		-0.5f, -0.5f, -0.5f,   1.0f, 1.0f, 1.0f,
+		-0.5f,  0.5f, -0.5f,   1.0f, 1.0f, 1.0f,
+		 0.5f,  0.5f, -0.5f,   1.0f, 1.0f, 1.0f,
+		 0.5f,  0.5f,  0.5f,   1.0f, 1.0f, 1.0f,
+		 0.5f,  0.5f,  0.5f,   1.0f, 1.0f, 1.0f,
+		-0.5f,  0.5f,  0.5f,   1.0f, 1.0f, 1.0f,
+		-0.5f,  0.5f, -0.5f,   1.0f, 1.0f, 1.0f,
 	};
 
 	GLuint VBO, VAO;
@@ -278,7 +354,7 @@ int main() {
 		glDrawArrays(GL_TRIANGLES, 36, 36);
 		// Cara 
 		model = glm::mat4(1.0f);
-		model = glm::translate(model, glm::vec3(0.0f, 2.0f, 0.91f));
+		model = glm::translate(model, glm::vec3(0.0f, 2.16f, 0.91f));
 		model = glm::scale(model, glm::vec3(1.6f, 1.2f, 0.2f));
 		glUniformMatrix4fv(modelLoc, 1, GL_FALSE, glm::value_ptr(model));
 		glDrawArrays(GL_TRIANGLES, 36, 36);
@@ -295,7 +371,12 @@ int main() {
 		glUniformMatrix4fv(modelLoc, 1, GL_FALSE, glm::value_ptr(model));
 		glDrawArrays(GL_TRIANGLES, 36, 36);
 		glBindVertexArray(0);
-		// Swap the screen buffers
+		// Ojo Izquierdo
+		model = glm::mat4(1.0f);
+		model = glm::translate(model, glm::vec3(-0.5f, 2.48f, 1.8f));
+		model = glm::scale(model, glm::vec3(5.0f, 5.0f, 5.0f));
+		glUniformMatrix4fv(modelLoc, 1, GL_FALSE, glm::value_ptr(model));
+		glDrawArrays(GL_TRIANGLES, 72, 36);
 		glfwSwapBuffers(window);
 	}
 	glDeleteVertexArrays(1, &VAO);
