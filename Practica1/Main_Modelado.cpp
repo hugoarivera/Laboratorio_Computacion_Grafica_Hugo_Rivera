@@ -406,7 +406,7 @@ int main() {
 		model = glm::translate(model, glm::vec3(-1.35f, -1.0f, 1.30f));
 		model = glm::scale(model, glm::vec3(1.0f, 2.0f, 1.0f));
 		glUniformMatrix4fv(modelLoc, 1, GL_FALSE, glm::value_ptr(model));
-		glDrawArrays(GL_TRIANGLES, 108, 36);
+		glDrawArrays(GL_TRIANGLES, 72, 36);
 
 		glBindVertexArray(0);
 	}
