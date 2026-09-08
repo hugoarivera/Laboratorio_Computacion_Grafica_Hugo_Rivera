@@ -370,14 +370,45 @@ int main() {
 		model = glm::scale(model, glm::vec3(1.2f, 1.2f, 1.2f));
 		glUniformMatrix4fv(modelLoc, 1, GL_FALSE, glm::value_ptr(model));
 		glDrawArrays(GL_TRIANGLES, 36, 36);
-		glBindVertexArray(0);
 		// Ojo Izquierdo
 		model = glm::mat4(1.0f);
-		model = glm::translate(model, glm::vec3(-0.5f, 2.48f, 1.8f));
-		model = glm::scale(model, glm::vec3(5.0f, 5.0f, 5.0f));
+		model = glm::translate(model, glm::vec3(-0.3f, 2.30f, 1.20f));
+		model = glm::scale(model, glm::vec3(0.40f, 0.03f, 0.12f));
 		glUniformMatrix4fv(modelLoc, 1, GL_FALSE, glm::value_ptr(model));
 		glDrawArrays(GL_TRIANGLES, 72, 36);
+		// Ojo derecho
+		model = glm::mat4(1.0f);
+		model = glm::translate(model, glm::vec3(0.3f, 2.30f, 1.20f));
+		model = glm::scale(model, glm::vec3(0.40f, 0.03f, 0.12f));
+		glUniformMatrix4fv(modelLoc, 1, GL_FALSE, glm::value_ptr(model));
+		glDrawArrays(GL_TRIANGLES, 72, 36);
+		// Boca
+		model = glm::mat4(1.0f);
+		model = glm::translate(model, glm::vec3(0.0f, 1.9f, 1.20f));
+		model = glm::scale(model, glm::vec3(0.50f, 0.03f, 0.12f));
+		glUniformMatrix4fv(modelLoc, 1, GL_FALSE, glm::value_ptr(model));
+		glDrawArrays(GL_TRIANGLES, 72, 36);
+		// Diente Izquierdo
+		model = glm::mat4(1.0f);
+		model = glm::translate(model, glm::vec3(-0.2f, 1.96f, 1.20f));
+		model = glm::scale(model, glm::vec3(0.1f, 0.1f, 0.12f));
+		glUniformMatrix4fv(modelLoc, 1, GL_FALSE, glm::value_ptr(model));
+		glDrawArrays(GL_TRIANGLES, 108, 36);
+		// Diente Derecho
+		model = glm::mat4(1.0f);
+		model = glm::translate(model, glm::vec3(0.2f, 1.96f, 1.20f));
+		model = glm::scale(model, glm::vec3(0.1f, 0.1f, 0.12f));
+		glUniformMatrix4fv(modelLoc, 1, GL_FALSE, glm::value_ptr(model));
+		glDrawArrays(GL_TRIANGLES, 108, 36);
 		glfwSwapBuffers(window);
+		// Uña 1 (Pie Izquierdo)
+		model = glm::mat4(1.0f);
+		model = glm::translate(model, glm::vec3(-1.35f, -1.0f, 1.30f));
+		model = glm::scale(model, glm::vec3(1.0f, 2.0f, 1.0f));
+		glUniformMatrix4fv(modelLoc, 1, GL_FALSE, glm::value_ptr(model));
+		glDrawArrays(GL_TRIANGLES, 108, 36);
+
+		glBindVertexArray(0);
 	}
 	glDeleteVertexArrays(1, &VAO);
 	glDeleteBuffers(1, &VBO);
