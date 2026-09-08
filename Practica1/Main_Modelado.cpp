@@ -237,6 +237,82 @@ int main() {
 		 0.5f,  0.5f,  0.5f,   1.0f, 1.0f, 1.0f,
 		-0.5f,  0.5f,  0.5f,   1.0f, 1.0f, 1.0f,
 		-0.5f,  0.5f, -0.5f,   1.0f, 1.0f, 1.0f,
+
+		// Cubo color gris (Lo usare para las garras)
+		-0.5f, -0.5f,  0.5f,   0.5f, 0.5f, 0.5f,
+		 0.5f, -0.5f,  0.5f,   0.5f, 0.5f, 0.5f,
+		 0.5f,  0.5f,  0.5f,   0.5f, 0.5f, 0.5f,
+		 0.5f,  0.5f,  0.5f,   0.5f, 0.5f, 0.5f,
+		-0.5f,  0.5f,  0.5f,   0.5f, 0.5f, 0.5f,
+		-0.5f, -0.5f,  0.5f,   0.5f, 0.5f, 0.5f,
+		-0.5f, -0.5f, -0.5f,   0.5f, 0.5f, 0.5f,
+		 0.5f, -0.5f, -0.5f,   0.5f, 0.5f, 0.5f,
+		 0.5f,  0.5f, -0.5f,   0.5f, 0.5f, 0.5f,
+		 0.5f,  0.5f, -0.5f,   0.5f, 0.5f, 0.5f,
+		-0.5f,  0.5f, -0.5f,   0.5f, 0.5f, 0.5f,
+		-0.5f, -0.5f, -0.5f,   0.5f, 0.5f, 0.5f,
+		 0.5f, -0.5f,  0.5f,   0.5f, 0.5f, 0.5f,
+		 0.5f, -0.5f, -0.5f,   0.5f, 0.5f, 0.5f,
+		 0.5f,  0.5f, -0.5f,   0.5f, 0.5f, 0.5f,
+		 0.5f,  0.5f, -0.5f,   0.5f, 0.5f, 0.5f,
+		 0.5f,  0.5f,  0.5f,   0.5f, 0.5f, 0.5f,
+		 0.5f, -0.5f,  0.5f,   0.5f, 0.5f, 0.5f,
+		-0.5f,  0.5f,  0.5f,   0.5f, 0.5f, 0.5f,
+		-0.5f,  0.5f, -0.5f,   0.5f, 0.5f, 0.5f,
+		-0.5f, -0.5f, -0.5f,   0.5f, 0.5f, 0.5f,
+		-0.5f, -0.5f, -0.5f,   0.5f, 0.5f, 0.5f,
+		-0.5f, -0.5f,  0.5f,   0.5f, 0.5f, 0.5f,
+		-0.5f,  0.5f,  0.5f,   0.5f, 0.5f, 0.5f,
+		-0.5f, -0.5f, -0.5f,   0.5f, 0.5f, 0.5f,
+		 0.5f, -0.5f, -0.5f,   0.5f, 0.5f, 0.5f,
+		 0.5f, -0.5f,  0.5f,   0.5f, 0.5f, 0.5f,
+		 0.5f, -0.5f,  0.5f,   0.5f, 0.5f, 0.5f,
+		-0.5f, -0.5f,  0.5f,   0.5f, 0.5f, 0.5f,
+		-0.5f, -0.5f, -0.5f,   0.5f, 0.5f, 0.5f,
+		-0.5f,  0.5f, -0.5f,   0.5f, 0.5f, 0.5f,
+		 0.5f,  0.5f, -0.5f,   0.5f, 0.5f, 0.5f,
+		 0.5f,  0.5f,  0.5f,   0.5f, 0.5f, 0.5f,
+		 0.5f,  0.5f,  0.5f,   0.5f, 0.5f, 0.5f,
+		-0.5f,  0.5f,  0.5f,   0.5f, 0.5f, 0.5f,
+		-0.5f,  0.5f, -0.5f,   0.5f, 0.5f, 0.5f,
+
+		// Cubo color cafe (Lo usare para las patas)
+		-0.5f, -0.5f,  0.5f,   0.6f, 0.4f, 0.2f,
+		 0.5f, -0.5f,  0.5f,   0.6f, 0.4f, 0.2f,
+		 0.5f,  0.5f,  0.5f,   0.6f, 0.4f, 0.2f,
+		 0.5f,  0.5f,  0.5f,   0.6f, 0.4f, 0.2f,
+		-0.5f,  0.5f,  0.5f,   0.6f, 0.4f, 0.2f,
+		-0.5f, -0.5f,  0.5f,   0.6f, 0.4f, 0.2f,
+		-0.5f, -0.5f, -0.5f,   0.6f, 0.4f, 0.2f,
+		 0.5f, -0.5f, -0.5f,   0.6f, 0.4f, 0.2f,
+		 0.5f,  0.5f, -0.5f,   0.6f, 0.4f, 0.2f,
+		 0.5f,  0.5f, -0.5f,   0.6f, 0.4f, 0.2f,
+		-0.5f,  0.5f, -0.5f,   0.6f, 0.4f, 0.2f,
+		-0.5f, -0.5f, -0.5f,   0.6f, 0.4f, 0.2f,
+		 0.5f, -0.5f,  0.5f,   0.6f, 0.4f, 0.2f,
+		 0.5f, -0.5f, -0.5f,   0.6f, 0.4f, 0.2f,
+		 0.5f,  0.5f, -0.5f,   0.6f, 0.4f, 0.2f,
+		 0.5f,  0.5f, -0.5f,   0.6f, 0.4f, 0.2f,
+		 0.5f,  0.5f,  0.5f,   0.6f, 0.4f, 0.2f,
+		 0.5f, -0.5f,  0.5f,   0.6f, 0.4f, 0.2f,
+		-0.5f,  0.5f,  0.5f,   0.6f, 0.4f, 0.2f,
+		-0.5f,  0.5f, -0.5f,   0.6f, 0.4f, 0.2f,
+		-0.5f, -0.5f, -0.5f,   0.6f, 0.4f, 0.2f,
+		-0.5f, -0.5f, -0.5f,   0.6f, 0.4f, 0.2f,
+		-0.5f, -0.5f,  0.5f,   0.6f, 0.4f, 0.2f,
+		-0.5f,  0.5f,  0.5f,   0.6f, 0.4f, 0.2f,
+		-0.5f, -0.5f, -0.5f,   0.6f, 0.4f, 0.2f,
+		 0.5f, -0.5f, -0.5f,   0.6f, 0.4f, 0.2f,
+		 0.5f, -0.5f,  0.5f,   0.6f, 0.4f, 0.2f,
+		 0.5f, -0.5f,  0.5f,   0.6f, 0.4f, 0.2f,
+		-0.5f, -0.5f,  0.5f,   0.6f, 0.4f, 0.2f,
+		-0.5f, -0.5f, -0.5f,   0.6f, 0.4f, 0.2f,
+		-0.5f,  0.5f, -0.5f,   0.6f, 0.4f, 0.2f,
+		 0.5f,  0.5f, -0.5f,   0.6f, 0.4f, 0.2f,
+		 0.5f,  0.5f,  0.5f,   0.6f, 0.4f, 0.2f,
+		 0.5f,  0.5f,  0.5f,   0.6f, 0.4f, 0.2f,
+		-0.5f,  0.5f,  0.5f,   0.6f, 0.4f, 0.2f,
+		-0.5f,  0.5f, -0.5f,   0.6f, 0.4f, 0.2f,
 	};
 
 	GLuint VBO, VAO;
@@ -400,14 +476,55 @@ int main() {
 		model = glm::scale(model, glm::vec3(0.1f, 0.1f, 0.12f));
 		glUniformMatrix4fv(modelLoc, 1, GL_FALSE, glm::value_ptr(model));
 		glDrawArrays(GL_TRIANGLES, 108, 36);
-		glfwSwapBuffers(window);
-		// Uña 1 (Pie Izquierdo)
+		// Garra 1 (Pie Izquierdo)
 		model = glm::mat4(1.0f);
-		model = glm::translate(model, glm::vec3(-1.35f, -1.0f, 1.30f));
-		model = glm::scale(model, glm::vec3(1.0f, 2.0f, 1.0f));
+		model = glm::translate(model, glm::vec3(-1.49f, -0.75f, 1.30f));
+		model = glm::scale(model, glm::vec3(0.2f, 0.3f, 0.2f));
 		glUniformMatrix4fv(modelLoc, 1, GL_FALSE, glm::value_ptr(model));
-		glDrawArrays(GL_TRIANGLES, 72, 36);
-
+		glDrawArrays(GL_TRIANGLES, 144, 36);
+		// Garra 2 (Pie Izquierdo)
+		model = glm::mat4(1.0f);
+		model = glm::translate(model, glm::vec3(-1.0f, -0.65f, 1.30f));
+		model = glm::scale(model, glm::vec3(0.2f, 0.5f, 0.2f));
+		glUniformMatrix4fv(modelLoc, 1, GL_FALSE, glm::value_ptr(model));
+		glDrawArrays(GL_TRIANGLES, 144, 36);
+		// Garra 3 (Pie Izquierdo)
+		model = glm::mat4(1.0f);
+		model = glm::translate(model, glm::vec3(-0.5f, -0.75f, 1.30f));
+		model = glm::scale(model, glm::vec3(0.2f, 0.3f, 0.2f));
+		glUniformMatrix4fv(modelLoc, 1, GL_FALSE, glm::value_ptr(model));
+		glDrawArrays(GL_TRIANGLES, 144, 36);
+		// Garra 1 (Pie Derecho)
+		model = glm::mat4(1.0f);
+		model = glm::translate(model, glm::vec3(1.49f, -0.75f, 1.30f));
+		model = glm::scale(model, glm::vec3(0.2f, 0.3f, 0.2f));
+		glUniformMatrix4fv(modelLoc, 1, GL_FALSE, glm::value_ptr(model));
+		glDrawArrays(GL_TRIANGLES, 144, 36);
+		// Garra 2 (Pie Izquierdo)
+		model = glm::mat4(1.0f);
+		model = glm::translate(model, glm::vec3(1.0f, -0.65f, 1.30f));
+		model = glm::scale(model, glm::vec3(0.2f, 0.5f, 0.2f));
+		glUniformMatrix4fv(modelLoc, 1, GL_FALSE, glm::value_ptr(model));
+		glDrawArrays(GL_TRIANGLES, 144, 36);
+		// Garra 3 (Pie Izquierdo)
+		model = glm::mat4(1.0f);
+		model = glm::translate(model, glm::vec3(0.5f, -0.75f, 1.30f));
+		model = glm::scale(model, glm::vec3(0.2f, 0.3f, 0.2f));
+		glUniformMatrix4fv(modelLoc, 1, GL_FALSE, glm::value_ptr(model));
+		glDrawArrays(GL_TRIANGLES, 144, 36);
+		// Pie Izquierdo (Huella)
+		model = glm::mat4(1.0f);
+		model = glm::translate(model, glm::vec3(-1.0f, -1.5f, 1.5f));
+		model = glm::scale(model, glm::vec3(0.8f, 0.8f, 0.2f));
+		glUniformMatrix4fv(modelLoc, 1, GL_FALSE, glm::value_ptr(model));
+		glDrawArrays(GL_TRIANGLES, 180, 36);
+		// Pie Derecho (Huella)
+		model = glm::mat4(1.0f);
+		model = glm::translate(model, glm::vec3(1.0f, -1.5f, 1.5f));
+		model = glm::scale(model, glm::vec3(0.8f, 0.8f, 0.2f));
+		glUniformMatrix4fv(modelLoc, 1, GL_FALSE, glm::value_ptr(model));
+		glDrawArrays(GL_TRIANGLES, 180, 36);
+		glfwSwapBuffers(window);
 		glBindVertexArray(0);
 	}
 	glDeleteVertexArrays(1, &VAO);
