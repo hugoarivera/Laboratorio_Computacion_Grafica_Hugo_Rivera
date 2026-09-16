@@ -1,6 +1,6 @@
 //Practica 5
 //Rivera Rodriguez Hugo Abraham
-//Fecha de entrega 14/09/2026
+//Fecha de entrega 15/09/2026
 //Número de cuenta: 3202916263
 
 #include<iostream>
@@ -361,7 +361,7 @@ int main() {
 		//Model Dedo5
 		model = glm::translate(modelTemp2, glm::vec3(0.0f, -0.3f, -0.375f));
 		model = glm::rotate(model, glm::radians(-60.0f), glm::vec3(1.0f, 0.0f, 0.0f));
-		model = glm::rotate(model, glm::radians(dedo1), glm::vec3(0.0f, -1.0f, 0.0f));
+		model = glm::rotate(model, glm::radians(0.0f), glm::vec3(0.0f, -1.0f, 0.0f));
 		modelTemp = model = glm::translate(model, glm::vec3(0.4f, 0.0f, 0.0f));
 		model = glm::scale(model, glm::vec3(0.8f, 0.25f, 0.35f));
 		color = glm::vec3(1.0f, 1.0f, 0.0f);
@@ -397,25 +397,25 @@ int main() {
 	 if (glfwGetKey(window, GLFW_KEY_ESCAPE) == GLFW_PRESS)  //GLFW_RELEASE
 		 glfwSetWindowShouldClose(window, true);
 	 if (glfwGetKey(window, GLFW_KEY_D) == GLFW_PRESS)
-		 movX += 0.08f;
+		 movX += 0.008f;
 	 if (glfwGetKey(window, GLFW_KEY_A) == GLFW_PRESS)
-		 movX -= 0.08f;
+		 movX -= 0.008f;
 	 if (glfwGetKey(window,GLFW_KEY_UP) == GLFW_PRESS)
-		 movY += 0.08f;
+		 movY += 0.008f;
 	 if (glfwGetKey(window, GLFW_KEY_DOWN) == GLFW_PRESS)
-		 movY -= 0.08f;
+		 movY -= 0.008f;
 	 if (glfwGetKey(window, GLFW_KEY_W) == GLFW_PRESS)
-		 movZ -= 0.08f;
+		 movZ -= 0.008f;
 	 if (glfwGetKey(window, GLFW_KEY_S) == GLFW_PRESS)
-		 movZ += 0.08f;
+		 movZ += 0.008f;
 	 if (glfwGetKey(window, GLFW_KEY_RIGHT) == GLFW_PRESS)
 		 rot += 0.18f;
 	 if (glfwGetKey(window, GLFW_KEY_LEFT) == GLFW_PRESS)
 		 rot -= 0.18f;
 	 if (glfwGetKey(window, GLFW_KEY_R) == GLFW_PRESS)
-		 hombro += 0.18f;
+		 hombro += 0.018f;
 	 if (glfwGetKey(window, GLFW_KEY_F) == GLFW_PRESS)
-		 hombro -= 0.18f;
+		 hombro -= 0.018f;
 	 if (glfwGetKey(window, GLFW_KEY_G) == GLFW_PRESS)
 		 codo+= 0.18f;
 	 if (glfwGetKey(window, GLFW_KEY_T) == GLFW_PRESS)
@@ -424,6 +424,14 @@ int main() {
 		 muneca += 0.18f;
 	 if (glfwGetKey(window, GLFW_KEY_Y) == GLFW_PRESS)
 		 muneca -= 0.18f;
+	 if (glfwGetKey(window, GLFW_KEY_J) == GLFW_PRESS) {
+		 dedo1 += 0.18f;
+		 if (dedo1 > 20.0f) dedo1 = 20.0f;
+	 }
+	 if (glfwGetKey(window, GLFW_KEY_U) == GLFW_PRESS) {
+		 dedo1 -= 0.18f;
+		 if (dedo1 < 0.0f) dedo1 = 0.0f;
+	 }
 	 if (glfwGetKey(window, GLFW_KEY_K) == GLFW_PRESS) {
 		 dedo2 += 0.18f;
 		 if (dedo2 > 90.0f) dedo2 = 90.0f;
