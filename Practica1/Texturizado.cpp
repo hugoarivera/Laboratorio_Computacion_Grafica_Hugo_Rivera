@@ -1,6 +1,6 @@
-//Previo 7
+//Practica 7
 //Rivera Rodriguez Hugo Abraham
-//Fecha de entrega: 25/09/2026
+//Fecha de entrega: 28/09/2026
 //Número de cuenta: 320291623
 
 #include <iostream>
@@ -104,21 +104,55 @@ int main()
 	// Set up vertex data (and buffer(s)) and attribute pointers
 	GLfloat vertices[] =
 	{
-		// Positions            // Colors              // Texture Coords
-		-0.5f, -0.5f, 0.0f,    1.0f, 1.0f,1.0f,		0.0f,0.0f,
-		0.5f, -0.5f, 0.0f,	   1.0f, 1.0f,1.0f,		1.0f,0.0f,
-		0.5f,  0.5f, 0.0f,     1.0f, 1.0f,1.0f,	    1.0f,1.0f,
-		-0.5f,  0.5f, 0.0f,    1.0f, 1.0f,1.0f,		0.0f,1.0f,
+		// Positions          // Colors          // Texture Coords
+		//Cara 1
+		-0.5f, -0.5f,  0.5f,  1.0f, 1.0f, 1.0f,  0.062f,   0.570f,
+		 0.5f, -0.5f,  0.5f,  1.0f, 1.0f, 1.0f,  0.288f,   0.570f,
+		 0.5f,  0.5f,  0.5f,  1.0f, 1.0f, 1.0f,  0.288f,   0.893f,
+		-0.5f,  0.5f,  0.5f,  1.0f, 1.0f, 1.0f,  0.062f,   0.893f,
 
-		
+		//Cara 2
+		-0.5f, -0.5f, -0.5f,  1.0f, 1.0f, 1.0f,  0.388f,   0.570f,	
+		 0.5f, -0.5f, -0.5f,  1.0f, 1.0f, 1.0f,  0.613f,   0.570f,
+		 0.5f,  0.5f, -0.5f,  1.0f, 1.0f, 1.0f,  0.613f,   0.893f,
+		-0.5f,  0.5f, -0.5f,  1.0f, 1.0f, 1.0f,  0.388f,   0.893f,
+
+		//Cara 3
+		-0.5f, -0.5f, -0.5f,  1.0f, 1.0f, 1.0f,  0.713f,   0.570f,
+		-0.5f, -0.5f,  0.5f,  1.0f, 1.0f, 1.0f,  0.938f,   0.570f,
+		-0.5f,  0.5f,  0.5f,  1.0f, 1.0f, 1.0f,  0.938f,   0.893f,
+		-0.5f,  0.5f, -0.5f,  1.0f, 1.0f, 1.0f,  0.713f,   0.893f,
+
+		//Cara 4
+		 0.5f, -0.5f,  0.5f,  1.0f, 1.0f, 1.0f,  0.713f,   0.107f,
+		 0.5f, -0.5f, -0.5f,  1.0f, 1.0f, 1.0f,  0.938f,   0.107f,
+		 0.5f,  0.5f, -0.5f,  1.0f, 1.0f, 1.0f,  0.938f,   0.430f,
+		 0.5f,  0.5f,  0.5f,  1.0f, 1.0f, 1.0f,  0.713f,   0.430f,
+
+		//Cara 5
+		-0.5f,  0.5f,  0.5f,  1.0f, 1.0f, 1.0f,  0.388f,   0.107f,
+		 0.5f,  0.5f,  0.5f,  1.0f, 1.0f, 1.0f,  0.613f,   0.107f,
+		 0.5f,  0.5f, -0.5f,  1.0f, 1.0f, 1.0f,  0.613f,   0.430f,
+		-0.5f,  0.5f, -0.5f,  1.0f, 1.0f, 1.0f,  0.388f,   0.430f,
+
+		//Cara 6
+		-0.5f, -0.5f, -0.5f,  1.0f, 1.0f, 1.0f,  0.065f,   0.127f,
+		 0.5f, -0.5f, -0.5f,  1.0f, 1.0f, 1.0f,  0.285f,   0.127f,
+		 0.5f, -0.5f,  0.5f,  1.0f, 1.0f, 1.0f,  0.285f,   0.450f,
+		-0.5f, -0.5f,  0.5f,  1.0f, 1.0f, 1.0f,  0.065f,   0.450f
+
 	};
 
 	GLuint indices[] =
 	{  // Note that we start from 0!
-		0,1,3,
-		1,2,3
-	
+		0, 1, 2, 2, 3, 0,
+		4, 5, 6, 6, 7, 4,
+		8, 9, 10, 10, 11, 8,
+		12, 13, 14, 14, 15, 12,
+		16, 17, 18, 18, 19, 16,
+		20, 21, 22, 22, 23, 20
 	};
+
 
 	// First, set the container's VAO (and VBO)
 	GLuint VBO, VAO,EBO;
@@ -156,13 +190,13 @@ int main()
 	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR_MIPMAP_LINEAR);
 	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_NEAREST_MIPMAP_NEAREST);
 	// Diffuse map
-	image = stbi_load("images/Carro.png", &textureWidth, &textureHeight, &nrChannels,0);
+	image = stbi_load("images/Caras de dados.png", &textureWidth, &textureHeight, &nrChannels,0);
 	glBindTexture(GL_TEXTURE_2D, texture1);
-	glTexImage2D(GL_TEXTURE_2D, 0, GL_RGBA, textureWidth, textureHeight, 0, GL_RGBA, GL_UNSIGNED_BYTE, image);
+	glTexImage2D(GL_TEXTURE_2D, 0, GL_RGB, textureWidth, textureHeight, 0, GL_RGB, GL_UNSIGNED_BYTE, image);
 	glGenerateMipmap(GL_TEXTURE_2D);
 	if (image)
 	{
-		glTexImage2D(GL_TEXTURE_2D, 0, GL_RGBA, textureWidth, textureHeight, 0, GL_RGBA, GL_UNSIGNED_BYTE, image);
+		glTexImage2D(GL_TEXTURE_2D, 0, GL_RGB, textureWidth, textureHeight, 0, GL_RGB, GL_UNSIGNED_BYTE, image);
 		glGenerateMipmap(GL_TEXTURE_2D);
 	}
 	else
@@ -200,10 +234,13 @@ int main()
 		GLint modelLoc = glGetUniformLocation(lampShader.Program, "model");
 		GLint viewLoc = glGetUniformLocation(lampShader.Program, "view");
 		GLint projLoc = glGetUniformLocation(lampShader.Program, "projection");
+		GLint textureLoc = glGetUniformLocation(lampShader.Program, "texture1");
 
 		// Bind diffuse map
 		glActiveTexture(GL_TEXTURE0);
 		glBindTexture(GL_TEXTURE_2D, texture1);
+		glUniform1i(textureLoc, 0);
+
 
 		// Set matrices
 		glUniformMatrix4fv(viewLoc, 1, GL_FALSE, glm::value_ptr(view));
@@ -211,7 +248,7 @@ int main()
 		glUniformMatrix4fv(modelLoc, 1, GL_FALSE, glm::value_ptr(model));
 		// Draw the light object (using light's vertex attributes)
 		glBindVertexArray(VAO);
-		glDrawElements(GL_TRIANGLES, 6, GL_UNSIGNED_INT, 0);
+		glDrawElements(GL_TRIANGLES, 36, GL_UNSIGNED_INT, 0);
 		glBindVertexArray(0);
 
 		// Swap the screen buffers
@@ -221,6 +258,8 @@ int main()
 	glDeleteVertexArrays(1, &VAO);
 	glDeleteBuffers(1, &VBO);
 	glDeleteBuffers(1, &EBO);
+	glDeleteTextures(1, &texture1);
+
 	// Terminate GLFW, clearing any resources allocated by GLFW.
 	glfwTerminate();
 
