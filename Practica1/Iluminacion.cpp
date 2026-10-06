@@ -1,6 +1,6 @@
-//Previo 8
+//Practica 8
 //Rivera Rodriguez Hugo Abraham
-// Fecha de entrega: 28/09/2026
+//Fecha de entrega: 05/10/2026
 //Número de cuenta: 320291623
 
 // Std. Includes
@@ -110,7 +110,33 @@ int main()
     // Load models
     Model red_dog((char*)"Models/RedDog.obj");
     Model Hombre_nieve((char*)"Models/Hombre_nieve.obj");
+    Model mountain((char*)"Models/MontanaP6.obj");
+    Model snowboard((char*)"Models/Snowboard.obj");
+    Model telesilla((char*)"Models/Telesilla.obj");
+    Model valla((char*)"Models/Valla.obj");
+    Model ski((char*)"Models/ski.obj");
+    Model sol((char*)"Models/sol.obj");
+    Model luna((char*)"Models/luna.obj");
     glm::mat4 projection = glm::perspective(camera.GetZoom(), (float)SCREEN_WIDTH / (float)SCREEN_HEIGHT, 0.1f, 100.0f);
+
+    float cableVertices[] = {
+          14.0f,  13.5f, -3.0f,
+         -10.0f,  -2.5f, -3.0f
+    };
+
+    GLuint cableVAO, cableVBO;
+    glGenVertexArrays(1, &cableVAO);
+    glGenBuffers(1, &cableVBO);
+
+    glBindVertexArray(cableVAO);
+    glBindBuffer(GL_ARRAY_BUFFER, cableVBO);
+    glBufferData(GL_ARRAY_BUFFER, sizeof(cableVertices), cableVertices, GL_STATIC_DRAW);
+
+    glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, 3 * sizeof(float), (void*)0);
+    glEnableVertexAttribArray(0);
+
+    glBindBuffer(GL_ARRAY_BUFFER, 0);
+    glBindVertexArray(0);
 
     float vertices[] = {
       -0.5f, -0.5f, -0.5f,  0.0f,  0.0f, -1.0f,
@@ -210,32 +236,47 @@ int main()
         glfwPollEvents();
         DoMovement();
 
-        // Clear the colorbuffer
-        glClearColor(0.0f, 0.0f, 0.0f, 1.0f);
+        //Se calcula la orbita del sol y la luna
+        float timeValue = glfwGetTime() * 0.5f;
+        float radius = 8.0f;
+
+        lightPos.x = cos(timeValue) * radius;
+        lightPos.y = sin(timeValue) * radius;
+        lightPos.z = 0.0f;
+
+        lightPos2.x = -cos(timeValue) * radius;
+        lightPos2.y = -sin(timeValue) * radius;
+        lightPos2.z = 0.0f;
+
+        //Aqui se hace un cambio de color en el entorno para poder visualizar la altura del sol y la luna
+        float skyFactor = (sin(timeValue) + 1.0f) / 2.0f;
+        glm::vec3 nightColor(0.05f, 0.05f, 0.1f);
+        glm::vec3 dayColor(0.5f, 0.7f, 1.0f);
+        glm::vec3 skyColor = glm::mix(nightColor, dayColor, skyFactor);
+
+        glClearColor(skyColor.r, skyColor.g, skyColor.b, 1.0f);
         glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 
-        
         lightingShader.Use();
+
         glUniform3f(glGetUniformLocation(lightingShader.Program, "light.position"), lightPos.x + movelightPos, lightPos.y + movelightPos, lightPos.z + movelightPos);
         glUniform3f(glGetUniformLocation(lightingShader.Program, "light2.position"), lightPos2.x + movelightPos2, lightPos2.y + movelightPos2, lightPos2.z + movelightPos2);
         glUniform3f(glGetUniformLocation(lightingShader.Program, "viewPos"), camera.GetPosition().x, camera.GetPosition().y, camera.GetPosition().z);
-
-
-        // Set lights properties
-        glUniform3f(glGetUniformLocation(lightingShader.Program, "light.ambient"),0.3f, 0.3f, 0.3f);
-        glUniform3f(glGetUniformLocation(lightingShader.Program, "light.diffuse"), 0.2f, 0.7f, 0.8f);
-        glUniform3f(glGetUniformLocation(lightingShader.Program, "lig.specular"), 0.3f, 0.6f, 0.4f);
-
-        //Luz 2
-        glUniform3f(glGetUniformLocation(lightingShader.Program, "light2.ambient"), 0.0f, 0.0f, 0.2f);
-        glUniform3f(glGetUniformLocation(lightingShader.Program, "light2.diffuse"), 0.0f, 0.2f, 0.8f);
-        glUniform3f(glGetUniformLocation(lightingShader.Program, "light2.specular"), 0.5f, 0.5f, 1.0f);
-
-
+        //Intensidad del sol y la luna
+        float sunIntensity = glm::clamp(sin(timeValue), 0.0f, 1.0f);
+        float moonIntensity = glm::clamp(-sin(timeValue), 0.0f, 1.0f);
+        //Propiedades del sol
+        glUniform3f(glGetUniformLocation(lightingShader.Program, "light.ambient"), 0.5f * sunIntensity, 0.3f * sunIntensity, 0.1f * sunIntensity);
+        glUniform3f(glGetUniformLocation(lightingShader.Program, "light.diffuse"), 1.0f * sunIntensity, 0.7f * sunIntensity, 0.2f * sunIntensity);
+        glUniform3f(glGetUniformLocation(lightingShader.Program, "light.specular"), 1.0f * sunIntensity, 0.8f * sunIntensity, 0.4f * sunIntensity);
+        //Propiedades de la luna
+        glUniform3f(glGetUniformLocation(lightingShader.Program, "light2.ambient"), 0.05f * moonIntensity, 0.05f * moonIntensity, 0.2f * moonIntensity);
+        glUniform3f(glGetUniformLocation(lightingShader.Program, "light2.diffuse"), 0.1f * moonIntensity, 0.2f * moonIntensity, 0.6f * moonIntensity);
+        glUniform3f(glGetUniformLocation(lightingShader.Program, "light2.specular"), 0.2f * moonIntensity, 0.3f * moonIntensity, 0.8f * moonIntensity);
         glm::mat4 view = camera.GetViewMatrix();
         glUniformMatrix4fv(glGetUniformLocation(lightingShader.Program, "projection"), 1, GL_FALSE, glm::value_ptr(projection));
         glUniformMatrix4fv(glGetUniformLocation(lightingShader.Program, "view"), 1, GL_FALSE, glm::value_ptr(view));
-
+        
         // Set material properties
         glUniform3f(glGetUniformLocation(lightingShader.Program, "material.ambient"), 0.5f, 0.5f, 0.5f);
         glUniform3f(glGetUniformLocation(lightingShader.Program, "material.diffuse"), 0.7f, 0.2f, 0.4f);
@@ -248,42 +289,94 @@ int main()
 
         // Draw the loaded model
         glm::mat4 modelDog(1.0f);
-        modelDog = glm::translate(modelDog, glm::vec3(4.0f, -1.0f, 0.0f)); // Posición Derecha
-        modelDog = glm::scale(modelDog, glm::vec3(3.0f, 3.0f, 3.0f));
+        modelDog = glm::translate(modelDog, glm::vec3(0.9f, 1.08f, 0.8f)); // Posición Derecha
+        modelDog = glm::scale(modelDog, glm::vec3(1.0f, 1.0f, 1.0f));
         glUniformMatrix4fv(glGetUniformLocation(lightingShader.Program, "model"), 1, GL_FALSE, glm::value_ptr(modelDog));
         red_dog.Draw(lightingShader);
 
         //Segundo modelo
         glm::mat4 modelSnowman(1);
-        modelSnowman = glm::translate(modelSnowman, glm::vec3(-4.0f, -1.0f, 0.0f));
-        modelSnowman = glm::scale(modelSnowman, glm::vec3(0.5, 0.5f, 0.5f));
+        modelSnowman = glm::translate(modelSnowman, glm::vec3(-1.0f, -0.7f, 2.0f));
+        modelSnowman = glm::scale(modelSnowman, glm::vec3(0.2f, 0.2f, 0.2f));
         glUniformMatrix4fv(glGetUniformLocation(lightingShader.Program, "model"), 1, GL_FALSE, glm::value_ptr(modelSnowman));
         Hombre_nieve.Draw(lightingShader);
+
+        //Tercer modelo
+        glm::mat4 modelMountain(1);
+        modelMountain = glm::translate(modelMountain, glm::vec3(0.0f, -2.0f, 0.0f));
+        modelMountain = glm::scale(modelMountain, glm::vec3(0.004f, 0.004f, 0.004f));
+        glUniformMatrix4fv(glGetUniformLocation(lightingShader.Program, "model"), 1, GL_FALSE, glm::value_ptr(modelMountain));
+        mountain.Draw(lightingShader);
+
+        //Tabla de snowboard
+        glm::mat4 modeSnowboard(1);
+        modeSnowboard = glm::translate(modeSnowboard, glm::vec3(1.1f, 0.48f, 0.8f));
+        modeSnowboard = glm::scale(modeSnowboard, glm::vec3(1.0f, 1.0f, 1.0f));
+        glUniformMatrix4fv(glGetUniformLocation(lightingShader.Program, "model"), 1, GL_FALSE, glm::value_ptr(modeSnowboard));
+        snowboard.Draw(lightingShader);
+
+        //Telesilla 1
+        glm::mat4 modeTelesilla(1);
+        modeTelesilla = glm::translate(modeTelesilla, glm::vec3(2.0f, 3.0f, -3.0f));
+        modeTelesilla = glm::scale(modeTelesilla, glm::vec3(0.008f, 0.008f, 0.008f));
+        modeTelesilla = glm::rotate(modeTelesilla, glm::radians(90.0f), glm::vec3(0.0f, 1.0f, 0.0f));
+        glUniformMatrix4fv(glGetUniformLocation(lightingShader.Program, "model"), 1, GL_FALSE, glm::value_ptr(modeTelesilla));
+        telesilla.Draw(lightingShader);
+
+        //Telesilla 2
+        glm::mat4 modeTelesilla2(1);
+        modeTelesilla2 = glm::translate(modeTelesilla2, glm::vec3(-1.0f, 1.0f, -3.0f));
+        modeTelesilla2 = glm::scale(modeTelesilla2, glm::vec3(0.008f, 0.008f, 0.008f));
+        modeTelesilla2 = glm::rotate(modeTelesilla2, glm::radians(90.0f), glm::vec3(0.0f, 1.0f, 0.0f));
+        glUniformMatrix4fv(glGetUniformLocation(lightingShader.Program, "model"), 1, GL_FALSE, glm::value_ptr(modeTelesilla2));
+        telesilla.Draw(lightingShader);
+
+        //Valla de madera
+        glm::mat4 modeValla(1);
+        modeValla = glm::translate(modeValla, glm::vec3(0.08f, 0.1f, 1.0f));
+        modeValla = glm::scale(modeValla, glm::vec3(0.1f, 0.1f, 0.1f));
+        glUniformMatrix4fv(glGetUniformLocation(lightingShader.Program, "model"), 1, GL_FALSE, glm::value_ptr(modeValla));
+        valla.Draw(lightingShader);
+
+        //Skis
+        glm::mat4 modeski(1);
+        modeski = glm::translate(modeski, glm::vec3(0.2f, 0.25f, 0.4f));
+        modeski = glm::scale(modeski, glm::vec3(0.01f, 0.03f, 0.03f));
+        modeski = glm::rotate(modeski, glm::radians(285.0f), glm::vec3(0.0f, 0.0f, 1.0f));
+        glUniformMatrix4fv(glGetUniformLocation(lightingShader.Program, "model"), 1, GL_FALSE, glm::value_ptr(modeski));
+        ski.Draw(lightingShader);
 
         /*glDrawArrays(GL_TRIANGLES, 0, 36);*/
         
 
         glBindVertexArray(0);
 
-
-
-
         lampshader.Use();
         glUniformMatrix4fv(glGetUniformLocation(lampshader.Program, "projection"), 1, GL_FALSE, glm::value_ptr(projection));
         glUniformMatrix4fv(glGetUniformLocation(lampshader.Program, "view"), 1, GL_FALSE, glm::value_ptr(view));
-        glBindVertexArray(VAO);
+        //Sol
+        glUniform3f(glGetUniformLocation(lampshader.Program, "lightColor"), 1.0f, 0.5f, 0.0f);
         glm::mat4 modelLamp1 = glm::mat4(1.0f);
-        modelLamp1 = glm::translate(modelLamp1, lightPos + glm::vec3(movelightPos)); 
-        modelLamp1 = glm::scale(modelLamp1, glm::vec3(0.3f));
+        modelLamp1 = glm::translate(modelLamp1, lightPos + glm::vec3(movelightPos));
+        modelLamp1 = glm::scale(modelLamp1, glm::vec3(0.5f));
         glUniformMatrix4fv(glGetUniformLocation(lampshader.Program, "model"), 1, GL_FALSE, glm::value_ptr(modelLamp1));
-        glDrawArrays(GL_TRIANGLES, 0, 36);
+        sol.Draw(lampshader);
 
-        //Foco 2
+        //Luna  
+        glUniform3f(glGetUniformLocation(lampshader.Program, "lightColor"), 0.9f, 0.9f, 1.0f);
         glm::mat4 modelLamp2 = glm::mat4(1.0f);
         modelLamp2 = glm::translate(modelLamp2, lightPos2 + glm::vec3(movelightPos2));
-        modelLamp2 = glm::scale(modelLamp2, glm::vec3(0.3f));
+        modelLamp2 = glm::scale(modelLamp2, glm::vec3(0.5f));
         glUniformMatrix4fv(glGetUniformLocation(lampshader.Program, "model"), 1, GL_FALSE, glm::value_ptr(modelLamp2));
-        glDrawArrays(GL_TRIANGLES, 0, 36);
+        luna.Draw(lampshader);
+
+        //Este es el modelo para el cable de la telesilla
+        glUniform3f(glGetUniformLocation(lampshader.Program, "lightColor"), 0.2f, 0.2f, 0.2f);
+        glm::mat4 modelCable(1.0f);
+        glUniformMatrix4fv(glGetUniformLocation(lampshader.Program, "model"), 1, GL_FALSE, glm::value_ptr(modelCable));
+        glLineWidth(3.0f);
+        glBindVertexArray(cableVAO);
+        glDrawArrays(GL_LINES, 0, 2);
         glBindVertexArray(0);
 
         // Swap the buffers
@@ -292,6 +385,8 @@ int main()
 
     glDeleteVertexArrays(1, &VAO);
     glDeleteBuffers(1, &VBO);
+    glDeleteVertexArrays(1, &cableVAO);
+    glDeleteBuffers(1, &cableVBO);
 
     glfwTerminate();
     return 0;
